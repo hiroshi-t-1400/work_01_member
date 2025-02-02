@@ -3,7 +3,7 @@
 @section('title', '会員登録')
 @section('content')
 
-    <h1>会員登録</h1>
+    <h1 class="text-center">会員登録</h1>
 
     <!-- 登録内容のバリデーションエラー処理 -->
     @if ($errors->any())
@@ -17,19 +17,24 @@
     @endif
 
     <!-- 新規登録フォーム -->
-    <div>
-        <form action="{{ url('memberRegister') }}" method="post" class="form-horizontal">
+    <div class="mb-4 container">
+        <form action="{{ url('memberRegister') }}" method="post" class="m-auto w-75">
         {{ csrf_field() }}
-            <input type="text" name="name" class="" placeholder="名前" value="テックたろ">
-            <input type="tel" name="phone" class="" placeholder="電話番号" value="08012340123">
-            <input type="email" name="email" class="" placeholder="メールアドレス" value="techis@example.com">
-            <button type="submit" class="">
-                <i class="fa fa-plus"></i> 登録
-            </button>
-
-            <!-- キャンセルして、何の処理もせずtopに戻る -->
-            <a href="{{ route('top') }}">キャンセル</a>
+            <div class="row d-flex flex-column">
+                <input type="text" name="name" class="my-2 py-2" placeholder="名前" value="">
+                <input type="tel" name="phone" class="my-2 py-2" placeholder="電話番号" value="">
+                <input type="email" name="email" class="my-2 py-2" placeholder="メールアドレス" value="">
+                <button type="submit" class="w-75 m-auto my-2 py-2">
+                    登録
+                </button>
+            
+                <!-- キャンセルして、何の処理もせずtopに戻る -->
+                <div class="my-2 py-2 text-center">
+                    <a href="{{ route('top') }}">キャンセル</a>
+                </div>
+            </div>
+                
         </form>
-    </div>
+    </div>  
 
 @endsection

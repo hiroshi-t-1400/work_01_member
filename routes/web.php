@@ -15,7 +15,8 @@ use App\Http\Controllers\MemberController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return redirect()->route('top');
 });
 
 Route::get('/top', [MemberController::class, 'top'])->name('top');
@@ -31,3 +32,6 @@ Route::put('/update/{id}', [MemberController::class, 'update'])->name('update');
 // deleteだけではルーティングを通すことはできない、一度getメソッドが通ったことにして、開通しdeleteが通せる、という漢字か？
 Route::get('/destroy/{id}', [MemberController::class, 'destroy'])->name('destroy');
 Route::delete('/destroy/{id}', [MemberController::class, 'destroy'])->name('destroy');
+
+// テスト用
+Route::get('/test', fn() => view('members/test'));

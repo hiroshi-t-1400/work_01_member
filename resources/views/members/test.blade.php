@@ -32,13 +32,22 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
-    <div id="app">
-        <main class="">
-            <div class="container py-4" style="max-width: 50%;">
-                <!-- <h1 class="text-center p-5">@yield('title')</h1> -->
-                @yield('content')
-            </div>
-        </main>
-    </div>
+    <div class="p-4 d-flex justify-content-end">表示のテストしてるよ</div>
+<div >
+    <form action="{{ url('memberRegister') }}" method="post" class="" style="width:600px;">
+        {{ csrf_field() }}
+            <!-- <div> -->
+                <input type="text" name="name" class="" placeholder="名前" value=""><br>
+                <input type="tel" name="phone" class="" placeholder="電話番号" value=""><br>
+                <input type="email" name="email" class="" placeholder="メールアドレス" value=""><br>
+                <button type="submit" class="">
+                    <i class="fa fa-plus"></i> 登録
+                </button>
+            <!-- </div> -->
+                <!-- キャンセルして、何の処理もせずtopに戻る -->
+                <a href="{{ route('top') }}">キャンセル</a>
+
+        </form>
+</div>
 </body>
 </html>

@@ -3,29 +3,39 @@
 @section('title', '会員編集')
 @section('content')
 
-    <h1>会員編集 会員ID{{ $members->id }}</h1>
+    <h1 class="text-center">会員編集 会員ID{{ $members->id }}</h1>
 
-    <div>
+    <div class="mb-4 w-75 container">
         <!-- 編集するためのフォーム -->
-        <form action="{{ url('update', $members->id) }}" method="post" class="form-horizontal">
+        <form action="{{ url('update', $members->id) }}" method="post">
         @method('PUT')
         {{ csrf_field() }}
-            <input type="text" name="name" class="" placeholder="名前" value="{{ $members->name }}" >
-            <input type="tel" name="phone" class="" placeholder="電話番号" value="{{ $members->phone }}">
-            <input type="email" name="email" class="" placeholder="メールアドレス" value="{{ $members->email }}">
-            <button type="submit" class="">
-                <i class="fa fa-plus"></i> 編集
-            </button>
+            <div class="d-flex flex-column">
+                <input type="text" name="name" class="my-2 py-2" placeholder="名前" value="{{ $members->name }}" >
+                <input type="tel" name="phone" class="my-2 py-2" placeholder="電話番号" value="{{ $members->phone }}">
+                <input type="email" name="email" class="my-2 py-2" placeholder="メールアドレス" value="{{ $members->email }}">
+                <!-- <button type="submit" class="w-75 m-auto"> -->
+                <button type="submit" class="w-75 my-2 py-2 mx-auto">
+                    編集
+                </button>
+            </div>
         </form>
 
         <!-- 削除するためのフォーム -->
-        <form action="{{ url('destroy', $members->id) }}" method="get" class="form-horizontal">
+        <form action="{{ url('destroy', $members->id) }}" method="get">
         @method('DELETE')
-            <button type="submit" class="">
-                <i class="fa fa-plus"></i> 削除
-            </button>
+
+            <!-- 削除用のフォームボタンのサイズを親ブロックの75%にするため、なぜかボタンの要素で指定できない -->
+            <div class="w-75 m-auto">
+                <!--  -->
+                <button type="submit" class="my-2 py-2 w-100">
+                        削除
+                </button>
+            </div>
         </form>
-            <a href="{{ route('top') }}">キャンセル</a>
+        <div class="my-2 py-2 text-center">
+            <a href="{{ route('top') }}" class="text-center">キャンセル</a>
+        </div>
     </div>
 
 @endsection

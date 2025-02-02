@@ -4,30 +4,33 @@
 
 @section('content')
 
-    <!-- 会員一覧表示 -->
-    <h1>会員一覧</h1>
 
-    <div class="">
-        <a href="{{ route('register') }}">＞＞登録</a>
+    <!-- 会員一覧表示 -->
+    <h1 class="text-center">会員一覧</h1>
+
+    <div class="text-end">
+        <a href="{{ route('register') }}" class="">＞＞登録</a>
     </div>
 
     <!-- テーブル -->
-    <table border>
-        <tbody>
+    <table class="table table-hover">
+        <thead>
             <tr>
-                <th>
+                <th scope="col">
                     名前
                 </th>
-                <th>
+                <th scope="col">
                     電話番号
                 </th>
-                <th>
+                <th scope="col">
                     メールアドレス
                 </th>
-                <th>
-                    （編集）
+                <th scope="col" class="">
+                    
                 </th>
             </tr>
+        </thead>
+        <tbody>
             @if ($members->isNotEmpty())
                 @foreach ($members as $member)
                     <tr>
@@ -53,4 +56,5 @@
             @endif
         </tbody>
     </table>
+
 @endsection
