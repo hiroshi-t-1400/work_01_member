@@ -5,7 +5,22 @@
 
     <h1 class="text-center">会員編集 会員ID{{ $members->id }}</h1>
 
+    
+    
     <div class="mb-4 w-75 container">
+        
+        <!-- バリデーションエラーが起きた時のメッセージ -->
+        @if ($errors->any())
+            <div>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+
         <!-- 編集するためのフォーム -->
         <form action="{{ url('update', $members->id) }}" method="post">
         @method('PUT')
