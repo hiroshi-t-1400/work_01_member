@@ -46,12 +46,12 @@ class MemberController extends Controller
      */
     public function memberRegister(Request $request)
     {
-        
+
         // バリデーション
         $this->validate($request, [
             'name' => 'required|max:15',
             'phone' => 'required|max:15',
-            'email' => 'required|max:254',   
+            'email' => 'required|max:254',
         ]);
 
         // Memberオブジェクトクラスを操作して、DBに1行のレコードを追加する
